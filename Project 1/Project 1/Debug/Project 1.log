@@ -1,0 +1,4 @@
+﻿  productorder.cpp
+C:\Users\RBeet\source\repos\CS311\Project 1\Project 1\productorder.h(84,28): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+C:\Users\RBeet\source\repos\CS311\Project 1\Project 1\productorder.h(101,28): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+  Project 1.vcxproj -> C:\Users\RBeet\source\repos\CS311\Project 1\Debug\Project 1.exe
