@@ -209,6 +209,9 @@ public:
 	// ??? Guarantee
 	iterator erase(iterator pos)
 	{
+		for (iterator i = &_data[_size]; i > pos; i--) {
+			*(i - 1) = *i;
+		}
 		resize(_size - 1);
 		return pos;
 	}
