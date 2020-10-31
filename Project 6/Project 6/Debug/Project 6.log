@@ -1,0 +1,38 @@
+﻿  dp6_test.cpp
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(102,22): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(119): message : see reference to class template instantiation 'TypeCheck<T>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\chrono(669): message : see reference to class template instantiation 'std::chrono::duration<double,std::ratio<1,1>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\chrono(177): message : see reference to class template instantiation 'std::chrono::duration<__int64,std::nano>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\chrono(647): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::steady_clock::duration>' being compiled
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(114,22): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(204,23): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(326,18): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(327,4): warning C5051: attribute 'maybe_unused' requires at least '/std:c++17'; ignored
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(565,26): error C2440: 'initializing': cannot convert from 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>> *' to 'std::string *&&'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(565,26): message : Reason: cannot convert from 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>> *' to 'std::string *'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(565,15): message : Conversion loses qualifiers
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(581,23): error C2440: 'initializing': cannot convert from 'const int *' to 'int *&&'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(581,23): message : Reason: cannot convert from 'const int *' to 'int *'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(581,12): message : Conversion loses qualifiers
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(597,30): error C2440: 'initializing': cannot convert from 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>> *' to 'std::string *&&'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(597,30): message : Reason: cannot convert from 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>> *' to 'std::string *'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(597,15): message : Conversion loses qualifiers
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(720,23): error C2678: binary '=': no operator found which takes a left-hand operand of type 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>>' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2680,19): message : could be 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2680,19): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2680,19): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2680,19): message :             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2680,19): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2676,19): message : or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem *const )'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2676,19): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2676,19): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2676,19): message :             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2676,19): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2661,19): message : or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2560,19): message : or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::initializer_list<_Elem>)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2560,19): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2560,19): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2560,19): message :             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2560,19): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2459,19): message : or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&) noexcept'
+C:\Users\RBeet\source\repos\CS311\Project 6\Project 6\dp6_test.cpp(720,23): message : while trying to match the argument list '(const std::basic_string<char,std::char_traits<char>,std::allocator<char>>, const char [2])'

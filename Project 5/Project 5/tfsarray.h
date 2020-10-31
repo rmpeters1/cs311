@@ -1,7 +1,7 @@
 // TFSArray.h
 // Rose Peters
 // Started: 2020-10-23
-// Updated:
+// Updated: 2020-10-29
 //
 // For CS 311 Fall 2020
 // Header for class TFSArray
@@ -14,8 +14,6 @@
 // For std::size_t
 #include <algorithm>
 // For std::max
-#include <exception>
-// For std::exception
 
 
 // *********************************************************************
@@ -31,6 +29,8 @@
 //     _data points to an array of value_type, allocated with new [],
 //      owned by *this, holding _capacity value_type values -- UNLESS
 //      _capacity == 0, in which case _data may be nullptr.
+// Requirements on Type:
+//						Valtype must have a copy ctor and a (non-throwing) dctor.
 template<typename ValType>
 class TFSArray {
 
@@ -66,14 +66,21 @@ public:
 	{}
 
 	// Copy ctor
-	// Strong Guarantee
+	// No-Throw Guarantee
 	TFSArray(const TFSArray& other)
 		: _capacity(std::max(other._size, size_type(DEFAULT_CAP))),
 		_size(other._size),
 		_data(other._capacity == 0 ? nullptr : new value_type[other._capacity])
 	{
-		std::copy(other.begin(), other.end(), _data);
+		try {
+			std::copy(other.begin(), other.end(), _data);
+		}
+		catch (...) {
+			delete[] _data;
+			throw;
+		}
 	}
+
 
 	// Move ctor
 	// No-Throw Guarantee
@@ -82,11 +89,12 @@ public:
 		_size(other._size),
 		_capacity(other._capacity)
 	{
+		other._size = 0;
 		other._data = nullptr;
 	}
 
 	// Copy assignment
-	// ??? Guarantee
+	// Basic Guarantee
 	TFSArray& operator=(const TFSArray& other) {
 		TFSArray copy(other);
 		mswap(copy);
@@ -104,7 +112,7 @@ public:
 
 	// Dctor
 	// No-Throw Guarantee
-	~TFSArray() noexcept
+	~TFSArray()
 	{
 		delete[] _data;
 	}
@@ -114,7 +122,7 @@ public:
 
 	// operator[] - non-const & const
 	// Pre:
-	//     ???
+	//     0 <= index
 	// No-Throw Guarantee
 	value_type& operator[](size_type index) noexcept
 	{
@@ -148,6 +156,7 @@ public:
 	{
 		return _data;
 	}
+
 	const_iterator begin() const noexcept
 	{
 		return _data;
@@ -164,60 +173,74 @@ public:
 		return begin() + size();
 	}
 
+
 	// resize
-	// ??? Guarantee
+	// No-Throw Guarantee
+	// Pre:
+	//		0 <= newsize
 	void resize(size_type newsize) {
 
 		size_type newSize = newsize;
-		size_type newCapacity = std::max(newsize, size_type(DEFAULT_CAP));
+		size_type newCapacity = std::max(_capacity * 2, newsize);
 
 		if (newsize <= _capacity) {
 			_size = newsize;
 		}
 		if (newsize > _capacity) {
-			newCapacity = _capacity * 2;
-			if (newCapacity < newSize) {
-				newCapacity += newSize - newCapacity;
-			}
 			value_type* newData = new value_type[newCapacity];
 			try {
-				std::copy(_data, _data + newSize, newData);
+				std::copy(begin(), end(), newData);
 			}
 			catch (...) {
 				delete[] newData;
 				throw;
 			}
-			std::swap(newData, _data);
-			delete[] newData;
+			delete[] _data;
+			std::swap(_data, newData);
+			std::swap(_capacity, newCapacity);
+			std::swap(_size, newSize);
+
 		}
 	}
 
 	// insert
-	// ??? Guarantee
+	// No-Throw Guarantee
+	// Pre:
+	//		_size contains pos
 	iterator insert(iterator pos,
 		const value_type& item) {
+
+
+		size_type index = pos - begin();
 		resize(_size + 1);
-		for (iterator i = &_data[_size]; i > pos; i--) {
-			*i = *(i - 1);
+		iterator it = begin() + index;
+		_data[_size - 1] = item;
+
+		try {
+			std::rotate(it, begin() + _size - 1, end());
 		}
-		*pos = item;
-		return pos;
+		catch (...) {
+			resize(_size - 1);
+			throw;
+		}
+		return it;
 
 	}
 
 	// erase
-	// ??? Guarantee
+	// Basic Guarantee
+	// Pre:
+	//		_size contains pos 
 	iterator erase(iterator pos)
 	{
-		for (iterator i = &_data[_size]; i > pos; i--) {
-			*(i - 1) = *i;
-		}
+
+		std::rotate(pos, pos + 1, end());
 		resize(_size - 1);
 		return pos;
 	}
 
 	// push_back
-	// ??? Guarantee
+	// Basic Guarantee
 	void push_back(const value_type& item)
 	{
 		insert(end(), item);
